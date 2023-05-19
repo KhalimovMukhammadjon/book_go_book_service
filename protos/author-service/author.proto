@@ -1,0 +1,49 @@
+syntax="proto3";
+
+package author_service;
+
+option go_package = "genproto/author_service";
+
+import "google/protobuf/struct.proto";
+
+message Author {
+    string id = 1;
+    string name = 2;
+    string age = 3;
+}
+
+message CreateAuthorRequest{
+    string name = 1;
+    int32 number_of_pages = 2;
+}
+
+message AuthorPrimaryKey{
+    string author_id = 1;
+}
+
+message GetAuthorListRequest{
+    int32 page = 1;
+    int32 limit = 2;
+}
+
+message GetAuthorListResponse{
+    repeated Author author = 1;
+    int32 count = 2;
+} 
+
+message UpdateAuthorRequest{
+   Author author = 1;
+}
+
+message Obj{
+    string key = 1;
+    repeated Obj params = 2;
+}
+
+message PatchUpdateRequest{
+    string id = 1;
+    repeated Obj params = 2;
+}
+
+
+
